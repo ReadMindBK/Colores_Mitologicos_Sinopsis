@@ -36,22 +36,24 @@
     }
 
     #play {
-      font-size: 20px;
-      background-color: #007bff;
-      color: white;
+      /* flex: 1;  <-- ELIMINA ESTA LÍNEA */
+      width: 200px; /* <-- Agrega esta línea para controlar qué tan angosto es */
+      padding: 12px;
       border: none;
-      padding: 9px 0;
-      width: 100%;
-      max-width: 320px;
-      border-radius: 15px;
+      border-radius: 14px;
+      background: #007bff; /* Tu color verde */
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
       cursor: pointer;
+      transition: .2s;
     }
 
     .jump {
       display: block;
       width: 100%;
       margin: 0;
-      background: #3b7ddd;
+      background: #007bff;
       color: #fff;
       font-size: 20px;
       font-weight: bold;
@@ -64,9 +66,48 @@
       box-shadow: 0 0 12px rgba(255, 140, 26, 0.8);
     }
 
+/* 1. Ancho, centrado y reinicio de estilos de la barra */
     input[type="range"] {
-      width: 100%;
-      margin-top: 10px;
+      width: 80%; /* <-- Cambia este valor para hacerla más angosta o ancha (ej. 70%, 250px) */
+      display: block;
+      margin: 10px auto 15px auto; /* <-- Esto la centra perfectamente */
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      outline: none;
+    }
+
+    /* 2. Estilos para la BARRA (el fondo gris) */
+    input[type="range"]::-webkit-slider-runnable-track {
+      width: 80%;
+      height: 6px;
+      background: #e0e0e0; /* Color gris de la línea */
+      border-radius: 4px;
+    }
+    input[type="range"]::-moz-range-track {
+      width: 80%;
+      height: 6px;
+      background: #e0e0e0; /* Color gris de la línea */
+      border-radius: 4px;
+    }
+
+    /* 3. Estilos SOLO para el PUNTO (verde) */
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: #007bff; /* <-- Punto Verde */
+      cursor: pointer;
+      margin-top: -6px; /* Centra el punto verticalmente sobre la línea */
+    }
+    input[type="range"]::-moz-range-thumb {
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      background: #4CAF50; /* <-- Punto Verde */
+      border: none;
+      cursor: pointer;
     }
 
     #cur,
